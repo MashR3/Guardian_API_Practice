@@ -13,12 +13,16 @@ class Content
   end
 
   # Return data by keyword
-  def search_content_keyword(keyword)
-    JSON.parse(self.class.get("#{keyword}" + "#{@token}").body)
+  def content_by_keyword(keyword)
+    x = keyword.gsub(" ", "%20")
+    JSON.parse(self.class.get("#{x}" + "#{@token}").body)
+  end
+
+  # Search and return content by exact keyword
+  def content_by_exact(keyword)
+    JSON.parse(self.class.get("#{"keyword"}" + "#{@token}").body)
   end
 
 end
 
-
-# https://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2014-01-01&api-key=9ec33225-5e82-4179-8fec-0c4201345640
-puts Content.new.search_content_keyword("apple")
+puts Content.new.content_by_keyword("apple Luke pie")
