@@ -7,14 +7,14 @@ class Content
 
   base_uri 'https://content.guardianapis.com/search?q='
 
-  # def initialize
-  #   token = YAML.load_file('../../token.yml')
-  #   @token = token['token']
-  # end
+  def initialize
+    token = YAML.load_file('token.yml')
+    @token = token['token']
+  end
 
   # Return data by keyword
   def search_content_keyword(keyword)
-    JSON.parse(self.class.get("#{keyword}" + "&api-key=9ec33225-5e82-4179-8fec-0c4201345640").body)
+    JSON.parse(self.class.get("#{keyword}" + "#{@token}").body)
   end
 
 end
