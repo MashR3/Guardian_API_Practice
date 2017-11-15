@@ -1,0 +1,4 @@
+token: '&api-key=9ec33225-5e82-4179-8fec-0c4201345640'
+
+# .yml is hidden in the .gitignore file so that no one has access to my personal token code
+# .yml is one big hash file. can use the ':' notation, or write the key:value pair using a dash (-)
